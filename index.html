@@ -1476,6 +1476,108 @@ body::before{opacity:.13;background-image:linear-gradient(rgba(122,22,34,.025) 1
 
 
 html,body,button,input,textarea,select{font-family:Cairo,Tahoma,Arial,sans-serif;}
+
+
+
+
+/* زر فتح الخريطة في صفحة مستقلة */
+.map-launch-section{
+  padding:75px 0;
+  background:
+    radial-gradient(circle at 8% 12%,rgba(200,174,141,.14),transparent 23rem),
+    linear-gradient(180deg,#fff 0%,#faf5ee 100%);
+}
+
+.map-launch-card{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:35px;
+  padding:48px 55px;
+  background:#fff;
+  border:1px solid #eadfd3;
+  border-radius:28px;
+  box-shadow:0 22px 55px rgba(79,11,16,.12);
+}
+
+.map-launch-content{
+  max-width:760px;
+}
+
+.map-launch-content h2{
+  margin:5px 0 12px;
+  color:#4f0b10;
+  font-size:clamp(28px,4vw,43px);
+  font-weight:900;
+}
+
+.map-launch-content p{
+  margin-bottom:24px;
+  color:#746a64;
+  font-size:17px;
+  line-height:2;
+}
+
+.map-launch-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  min-height:52px;
+  padding:12px 25px;
+  color:#fff;
+  background:linear-gradient(135deg,#9f1f27,#7f151d);
+  border-radius:14px;
+  font-weight:900;
+  box-shadow:0 14px 28px rgba(159,31,39,.22);
+  transition:.25s;
+}
+
+.map-launch-btn:hover{
+  color:#fff;
+  transform:translateY(-3px);
+  background:linear-gradient(135deg,#7f151d,#4f0b10);
+  box-shadow:0 18px 34px rgba(159,31,39,.3);
+}
+
+.map-launch-icon{
+  width:145px;
+  height:145px;
+  flex:0 0 145px;
+  display:grid;
+  place-items:center;
+  color:#fff;
+  background:linear-gradient(145deg,#9f1f27,#4f0b10);
+  border-radius:35px;
+  font-size:55px;
+  box-shadow:0 18px 38px rgba(79,11,16,.22);
+  transform:rotate(-4deg);
+}
+
+@media (max-width:768px){
+  .map-launch-section{
+    padding:50px 0;
+  }
+
+  .map-launch-card{
+    padding:30px 24px;
+    flex-direction:column-reverse;
+    text-align:center;
+  }
+
+  .map-launch-icon{
+    width:105px;
+    height:105px;
+    flex-basis:105px;
+    border-radius:26px;
+    font-size:42px;
+  }
+
+  .map-launch-btn{
+    width:100%;
+  }
+}
+
 </style>
 </head>
 <body class="municipality-site page-index"><div aria-hidden="true" class="scroll-progress"></div>
@@ -1524,7 +1626,17 @@ html,body,button,input,textarea,select{font-family:Cairo,Tahoma,Arial,sans-serif
 <li><a href="health-environment.html">الصحة والبيئة</a></li>
 </ul>
 </li>
-<li><a href="news.html">الأخبار</a></li>
+<li class="dropdown">
+<a class="drop-link">دوائر البلدية <i class="fa-solid fa-chevron-down"></i></a>
+<ul class="dropdown-menu">
+<li><a href="Administrative-Department.html">الدائرة الادارية</a></li>
+<li><a href="Finance-Department.html">الدائرة المالية</a></li>
+<li><a href="Department-Health.html">الدائرة الصحية</a></li>
+<li><a href="Legal-Department.html">الدائرة القانونية</a></li>
+<li><a href="Planning-Department.html">دائرة التخطيط والتنظيم</a></li>
+<li><a href="PublicRelations-Department.html">دائرة العلاقات العامة والإعلام</a></li>
+</ul>
+</li>
 <li><a href="media-center.html">المركز الإعلامي</a></li>
 <li><a href="municipality-location.html">موقع البلدية</a></li>
 <li><a href="about-maghazi.html">عن المخيم</a></li>
@@ -1648,12 +1760,43 @@ html,body,button,input,textarea,select{font-family:Cairo,Tahoma,Arial,sans-serif
 </div>
 </div>
 </section>
-<section class="map-teaser map-placeholder-section">
-<div class="shell map-teaser-inner">
-<div class="reveal"><span class="eyebrow">قسم الخريطة</span><h2>مكان مخصص للخريطة التفاعلية</h2><p>تم الإبقاء على هذا القسم لتحديد موقع الخريطة داخل الموقع، وسيتم ربط خريطة البلدية التفاعلية هنا لاحقًا عند اعتماد النسخة النهائية.</p><a class="btn btn-outline dark" href="map.html"><i class="fa-regular fa-map"></i> معاينة مكان الخريطة</a></div>
-<div aria-hidden="true" class="map-icon reveal"><i class="fa-regular fa-map"></i></div>
+
+
+<section class="map-launch-section" id="interactive-map">
+  <div class="shell">
+    <div class="map-launch-card reveal">
+
+      <div class="map-launch-content">
+        <span class="eyebrow">قسم الخريطة</span>
+        <h2>الخريطة التفاعلية لمخيم المغازي</h2>
+        <p>
+          استعرض الأحياء والمباني والشوارع والمرافق العامة ومرافق البلدية
+          من خلال الخريطة التفاعلية.
+        </p>
+
+        <a
+          href="interactive-map/index.html"
+          target="_blank"
+          rel="noopener"
+          class="map-launch-btn">
+          <i class="fa-solid fa-map-location-dot"></i>
+          فتح الخريطة التفاعلية
+        </a>
+      </div>
+
+     <div class="map-launch-preview">
+  <img src="img/map-preview.jpg" alt="معاينة الخريطة التفاعلية لمخيم المغازي">
+  <span>
+    <i class="fa-solid fa-map-location-dot"></i>
+    خريطة تفاعلية
+  </span>
 </div>
-</section><section class="cta-band">
+
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
 <div class="shell cta-inner reveal">
 <div>
 <span class="eyebrow light">شاركنا رأيك</span>

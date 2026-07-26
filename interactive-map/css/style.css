@@ -1,0 +1,492 @@
+:root{
+  --navy:#871919; --navy2:#791919; --green:#2f7d5c; --green2:#45a47b;
+  --cyan:#23b7bd; --orange:#d97706; --violet:#7c5ce7;
+  --bg:#edf3f6; --panel:rgba(255,255,255,.92); --text:#10243a; --muted:#74879a;
+  --border:rgba(16,36,58,.12); --shadow:0 18px 50px rgba(9,31,51,.18);
+  --radius:20px;
+}
+body.dark{
+  --bg:#07131f; --panel:rgba(12,30,46,.93); --text:#edf7ff; --muted:#9ab0c4;
+  --border:rgba(255,255,255,.12); --shadow:0 18px 55px rgba(0,0,0,.42);
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;font-family:"Cairo",sans-serif;background:var(--bg);color:var(--text);overflow:hidden}
+button,input,select{font:inherit}
+button{cursor:pointer}
+.topbar{height:86px;background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;display:flex;align-items:center;gap:24px;padding:14px 22px;position:relative;z-index:1100;box-shadow:0 8px 24px rgba(5,25,45,.25)}
+.brand{display:flex;align-items:center;gap:12px;min-width:300px}.brand-logo{width:58px;height:58px;background:#fff;border-radius:16px;padding:5px}.brand h1{font:700 21px "Noto Kufi Arabic";margin:0}.brand p{margin:4px 0 0;color:#c9d8e5;font-size:12px}
+.global-search{position:relative;flex:1;max-width:680px;margin:auto}.global-search>i{position:absolute;right:18px;top:50%;transform:translateY(-50%);color:#7f91a1}.global-search input{width:100%;height:48px;border:0;border-radius:999px;padding:0 48px 0 45px;background:#f8fbfd;color:#10243a;outline:none;box-shadow:0 6px 20px rgba(0,0,0,.12)}.global-search>button{position:absolute;left:10px;top:9px;width:30px;height:30px;border:0;border-radius:50%;background:transparent;color:#8797a5}.search-results{display:none;position:absolute;top:56px;right:0;left:0;background:var(--panel);backdrop-filter:blur(16px);border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow);max-height:360px;overflow:auto;color:var(--text)}.search-results.open{display:block}.result-item{padding:12px 16px;border-bottom:1px solid var(--border);cursor:pointer}.result-item:hover{background:rgba(47,125,92,.12)}.result-item strong{display:block}.result-item span{font-size:12px;color:var(--muted)}
+.top-actions{display:flex;gap:9px}.icon-btn{width:44px;height:44px;border-radius:14px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.1);color:#fff}.icon-btn:hover{background:rgba(255,255,255,.2)}
+.stats-strip{position:absolute;top:102px;left:50%;transform:translateX(-50%);z-index:900;display:grid;grid-template-columns:repeat(4,minmax(145px,1fr));gap:10px;width:min(720px,calc(100% - 430px));pointer-events:none}.stats-strip article{display:flex;align-items:center;gap:11px;padding:11px 15px;border:1px solid rgba(255,255,255,.65);background:rgba(255,255,255,.82);backdrop-filter:blur(14px);border-radius:16px;box-shadow:0 10px 30px rgba(15,42,71,.12);color:#10243a}.dark .stats-strip article{background:rgba(10,30,47,.82);color:#fff;border-color:rgba(255,255,255,.1)}.stats-strip i{font-size:20px;color:var(--green)}.stats-strip strong{font-size:18px;display:block}.stats-strip span{font-size:11px;color:var(--muted)}
+.app-shell{height:calc(100vh - 86px);
+  display:grid;grid-template-columns:310px 1fr;
+  position:relative}
+  .sidebar{background:var(--panel);
+    backdrop-filter:blur(20px);
+    border-left:1px solid var(--border);
+    overflow-y:auto;
+    padding:20px 16px;
+    z-index:1000;transition:.3s}
+    .panel-header{display:flex;
+      justify-content:space-between;
+      align-items:center;margin-bottom:18px}
+      .eyebrow{font-size:11px;color:var(--green);
+        font-weight:800}
+        .panel-header h2{font:700 18px "Noto Kufi Arabic";
+          margin:5px 0}
+          .close-panel{display:none;border:0;background:transparent;color:var(--text);font-size:18px}.panel-section{border:1px solid var(--border);border-radius:18px;margin-bottom:14px;overflow:hidden;background:rgba(255,255,255,.35)}.dark .panel-section{background:rgba(255,255,255,.03)}.section-toggle{width:100%;display:flex;justify-content:space-between;align-items:center;padding:14px;border:0;background:transparent;color:var(--text);font-weight:800}.section-toggle span{display:flex;gap:9px;align-items:center}.section-toggle span i{color:var(--green)}.section-body{padding:0 12px 13px}.section-body.collapsed{display:none}.layer-row{display:grid;grid-template-columns:20px 18px 1fr auto;gap:9px;align-items:center;padding:9px 4px;font-size:13px}.layer-row input{accent-color:var(--green)}.layer-row b{font-size:11px;color:var(--muted)}.swatch{width:14px;height:14px;border-radius:4px;display:inline-block}.swatch.building{background:rgba(35,183,189,.38);border:2px solid var(--cyan)}.swatch.building-one{background:rgba(35,183,189,.38);border:2px solid #23b7bd}.swatch.building-two{background:rgba(169,176,183,.55);border:2px solid #5f6b76}.swatch.neighborhood{background:rgba(18,59,102,.12);border:2px solid #123b66}.swatch.road{background:#dc2626}
+          .swatch.facility{background:#7c4a21;border-radius:50%}
+          .swatch.public-facility{background:#a16207;border-radius:50%}
+          .filters label{display:block;
+            font-size:12px;color:var(--muted);
+            margin:9px 0}.filters input,.filters select{width:100%;height:40px;border:1px solid var(--border);border-radius:11px;padding:0 11px;margin-top:5px;background:var(--panel);color:var(--text)}.primary-btn,.ghost-btn{width:100%;height:41px;border-radius:11px;margin-top:8px}.primary-btn{border:0;background:linear-gradient(135deg,var(--green),var(--green2));color:#fff}.ghost-btn{border:1px solid var(--border);background:transparent;color:var(--text)}.legend{display:grid;gap:10px;font-size:13px}.legend>div{display:flex;gap:10px;align-items:center}
+.map-area{position:relative;min-width:0}.map-area,#map{height:100%;width:100%}.map-toolbar{position:absolute;left:18px;top:90px;z-index:800;display:flex;flex-direction:column;gap:8px}.map-toolbar button{width:43px;height:43px;border:1px solid var(--border);border-radius:13px;background:var(--panel);backdrop-filter:blur(14px);color:var(--text);box-shadow:0 8px 22px rgba(15,42,71,.14)}.map-toolbar button:hover{background:var(--green);color:#fff}.basemap-menu{display:none;position:absolute;left:70px;top:180px;z-index:850;background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:8px;box-shadow:var(--shadow)}.basemap-menu.open{display:grid;gap:5px}.basemap-menu button{border:0;background:transparent;padding:9px 12px;border-radius:9px;color:var(--text)}.basemap-menu button.active,.basemap-menu button:hover{background:var(--green);color:#fff}.map-status{position:absolute;bottom:12px;right:12px;z-index:800;background:rgba(11,34,57,.88);color:#fff;border-radius:12px;padding:7px 12px;font-size:11px;display:flex;gap:15px}
+.details-panel{position:absolute;left:18px;top:105px;bottom:18px;width:350px;background:var(--panel);backdrop-filter:blur(22px);border:1px solid var(--border);border-radius:24px;z-index:950;box-shadow:var(--shadow);padding:20px;transform:translateX(calc(-100% - 40px));transition:.35s;overflow:auto}.details-panel.open{transform:translateX(0)}.close-details{position:absolute;left:15px;top:15px;border:0;background:rgba(0,0,0,.06);color:var(--text);width:32px;height:32px;border-radius:50%}.details-hero{padding:28px 0 18px;border-bottom:1px solid var(--border)}.detail-badge{display:inline-block;padding:5px 11px;background:rgba(47,125,92,.14);color:var(--green);border-radius:999px;font-size:11px;font-weight:800}.details-hero h2{font:700 20px "Noto Kufi Arabic";margin:12px 0 7px}.details-hero p{margin:0;color:var(--muted);font-size:13px}.detail-fields{padding:14px 0}.detail-row{display:flex;justify-content:space-between;gap:15px;padding:10px 0;border-bottom:1px solid var(--border);font-size:13px}.detail-row span:first-child{color:var(--muted)}.detail-row strong{text-align:left}.detail-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}.detail-actions a,.detail-actions button{border:1px solid var(--border);background:transparent;color:var(--text);padding:10px;border-radius:11px;text-decoration:none;text-align:center;font-size:12px}.detail-actions .complaint{grid-column:1/-1;background:#b83a3a;color:#fff;border:0}
+.toast{position:fixed;bottom:25px;left:50%;transform:translate(-50%,30px);opacity:0;z-index:3000;background:#10243a;color:#fff;padding:11px 18px;border-radius:999px;transition:.25s}.toast.show{opacity:1;transform:translate(-50%,0)}
+.facility-marker{background:#7c4a21;border:3px solid #fff;
+  border-radius:50%;
+  box-shadow:0 5px 14px rgba(80,45,20,.35)}
+.leaflet-container{font-family:"Cairo",sans-serif}
+.leaflet-control-attribution{font-size:10px}
+.mobile-only{display:none}
+@media(max-width:1000px){.stats-strip{width:calc(100% - 350px);grid-template-columns:repeat(2,1fr)}}
+@media
+(max-width:760px){
+  .topbar{height:auto;min-height:82px;
+    padding:10px 12px;gap:10px;flex-wrap:wrap}.brand{min-width:auto}.brand-logo{width:45px;height:45px}.brand h1{font-size:15px}.brand p{display:none}.global-search{order:3;width:100%;max-width:none}.top-actions{margin-right:auto}.mobile-only{display:inline-block}
+  .app-shell{height:calc(100vh - 138px);display:block}.sidebar{position:absolute;right:0;top:0;bottom:0;width:min(88vw,330px);transform:translateX(110%);box-shadow:var(--shadow)}.sidebar.open{transform:translateX(0)}.close-panel{display:block}
+  .stats-strip{top:150px;width:calc(100% - 24px);grid-template-columns:repeat(4,1fr);gap:5px}.stats-strip article{padding:8px;display:block;text-align:center}.stats-strip i{font-size:14px}.stats-strip strong{font-size:14px}.stats-strip span{font-size:9px}
+  .map-toolbar{top:92px;left:10px}.details-panel{left:10px;right:10px;width:auto;top:auto;bottom:10px;height:58vh;transform:translateY(calc(100% + 30px))}.details-panel.open{transform:translateY(0)}.map-status{display:none}
+}
+@media
+ print{.topbar,.sidebar,.stats-strip,.map-toolbar,
+  .map-status {display:none!important}
+  .app-shell{height:100vh;display:block}
+  .details-panel{display:none}
+  .map-area{height:100vh}}
+
+/* علامة مدخل المغازي — حجم ومسافة ثابتة مهما تغيّر التكبير */
+.entrance-marker{
+  background:transparent!important;
+  border:0!important;
+}
+
+.entrance-wrapper{
+ min-width:175px;
+  height:48px;
+  padding:0 16px;
+  font-size:18px;
+
+  position:relative;
+  pointer-events:auto;
+}
+
+.entrance-label-box{
+  position:absolute;
+  top:0;
+  left:50%;
+  transform:translateX(-50%);
+  direction:rtl;
+
+  min-width:175px;
+  height:48px;
+  padding:0 16px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+
+  background:linear-gradient(135deg,#0f3155,#176847);
+  color:#fff;
+  border:3px solid #fff;
+  border-radius:15px;
+
+  font-family:"Cairo",sans-serif;
+  font-size:18px;
+  font-weight:800;
+  white-space:nowrap;
+
+  box-shadow:0 8px 22px rgba(0,0,0,.38);
+}
+
+.entrance-label-box::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:-10px;
+  transform:translateX(-50%);
+  border-left:9px solid transparent;
+  border-right:9px solid transparent;
+  border-top:10px solid #176847;
+}
+
+.entrance-label-box i{
+  color:#ffd166;
+   font-size:16px;
+}
+
+.entrance-dot{
+  position:absolute;
+  left:50%;
+  bottom:0;
+  transform:translateX(-50%);
+
+    width:11px;
+  height:11px;
+
+  background:#ffd166;
+  border:3px solid #fff;
+  border-radius:50%;
+
+  box-shadow:0 4px 12px rgba(0,0,0,.45);
+}
+
+/* =========================================================
+   إخفاء وإظهار لوحة الطبقات والفلاتر
+   الخريطة تكون بكامل العرض، واللوحة تظهر عند الضغط على زر القائمة
+   ========================================================= */
+
+/* الخريطة تأخذ كامل المساحة دائمًا */
+.app-shell{
+  display:block !important;
+  position:relative;
+}
+
+.map-area{
+  width:100% !important;
+  height:100% !important;
+}
+
+/* لوحة الطبقات مخفية افتراضيًا */
+.sidebar{
+  position:absolute !important;
+  top:0;
+  right:0;
+  bottom:0;
+  width:min(88vw, 330px);
+  transform:translateX(110%);
+  transition:transform .32s ease;
+  box-shadow:var(--shadow);
+  z-index:1200;
+}
+
+/* تظهر عند إضافة class باسم open */
+.sidebar.open{
+  transform:translateX(0);
+}
+
+/* إظهار زر فتح القائمة على الكمبيوتر والجوال */
+#sidebarBtn,
+.mobile-only{
+  display:inline-block !important;
+}
+
+/* زر إغلاق اللوحة ظاهر دائمًا */
+.close-panel{
+  display:block !important;
+}
+
+/* منع شريط الإحصائيات من حجز مساحة اللوحة القديمة */
+.stats-strip{
+  width:min(720px, calc(100% - 40px)) !important;
+}
+
+/* على الشاشات الصغيرة */
+@media (max-width:760px){
+  .sidebar{
+    width:min(90vw, 340px);
+  }
+
+  .stats-strip{
+    width:calc(100% - 24px) !important;
+  }
+}
+
+/* =========================================================
+   تصغير بطاقات الإحصائيات ووضعها كلها بجانب بعضها
+   ========================================================= */
+.stats-strip{
+  display:flex !important;
+  flex-wrap:nowrap !important;
+  justify-content:center !important;
+  align-items:stretch !important;
+  gap:8px !important;
+  width:auto !important;
+  max-width:calc(100% - 140px) !important;
+  top:18px !important;
+}
+
+.stats-strip article{
+  width:150px !important;
+  min-width:150px !important;
+  height:82px !important;
+  padding:10px 12px !important;
+  border-radius:15px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:9px !important;
+}
+
+.stats-strip i{
+  font-size:18px !important;
+}
+
+.stats-strip strong{
+  font-size:16px !important;
+  line-height:1.2 !important;
+}
+
+.stats-strip span{
+  font-size:10px !important;
+}
+
+/* للشاشات المتوسطة */
+@media (max-width:1100px){
+  .stats-strip{
+    max-width:calc(100% - 90px) !important;
+    gap:6px !important;
+  }
+
+  .stats-strip article{
+    width:130px !important;
+    min-width:130px !important;
+    height:74px !important;
+    padding:8px 9px !important;
+  }
+
+  .stats-strip strong{
+    font-size:14px !important;
+  }
+
+  .stats-strip span{
+    font-size:9px !important;
+  }
+}
+
+/* للجوال: تبقى في صف واحد مع تمرير أفقي بدل النزول لسطر جديد */
+@media (max-width:760px){
+  .stats-strip{
+    left:10px !important;
+    right:10px !important;
+    transform:none !important;
+    width:auto !important;
+    max-width:none !important;
+    justify-content:flex-start !important;
+    overflow-x:auto !important;
+    overflow-y:hidden !important;
+    padding-bottom:4px !important;
+    scrollbar-width:thin;
+  }
+
+  .stats-strip article{
+    flex:0 0 112px !important;
+    width:112px !important;
+    min-width:112px !important;
+    height:66px !important;
+  }
+}
+
+/* إصلاح نزول بطاقات الإحصائيات تحت الشريط العلوي */
+.stats-strip{
+  top:102px !important;
+  z-index:900 !important;
+}
+
+/* على الجوال تنزل تحت الهيدر والبحث */
+@media (max-width:760px){
+  .stats-strip{
+    top:150px !important;
+  }
+}
+.neighborhood-name-label {
+  background: transparent !important;
+  border: none !important;
+}
+
+.neighborhood-name-label span {
+  display: inline-block;
+  color: #00e5ff;
+  font-family: "Cairo", Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1.2;
+  white-space: nowrap;
+  text-align: center;
+  text-shadow:
+    -1px -1px 0 #002b33,
+     1px -1px 0 #002b33,
+    -1px  1px 0 #002b33,
+     1px  1px 0 #002b33,
+     0 2px 4px rgba(0,0,0,0.75);
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   تحسينات وضوح الحدود والبحث والتسميات
+   ========================================================= */
+
+/* هدف البحث: حلقة صفراء واضحة */
+.search-target-ring {
+  animation: searchPulse 1.3s ease-in-out infinite;
+}
+
+@keyframes searchPulse {
+  0% {
+    stroke-width: 4;
+    opacity: 1;
+  }
+  50% {
+    stroke-width: 8;
+    opacity: 0.45;
+  }
+  100% {
+    stroke-width: 4;
+    opacity: 1;
+  }
+}
+
+.search-target-label {
+  background: transparent !important;
+  border: none !important;
+}
+
+.search-target-label span {
+  display: inline-block;
+  background: #facc15;
+  color: #10243a;
+  border: 2px solid #ffffff;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-family: "Cairo", Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 900;
+  white-space: nowrap;
+  box-shadow: 0 5px 14px rgba(0,0,0,0.35);
+}
+
+/* أسماء المرافق تظهر عند التكبير */
+.facility-name-label {
+  background: transparent !important;
+  border: none !important;
+}
+
+.facility-name-label span {
+  display: inline-block;
+  max-width: 150px;
+  color: #ffffff;
+  background: rgba(6, 24, 38, 0.86);
+  border: 2px solid rgba(255,255,255,0.9);
+  border-radius: 999px;
+  padding: 3px 8px;
+  font-family: "Cairo", Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 900;
+  line-height: 1.25;
+  white-space: nowrap;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.75);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.35);
+  pointer-events: none;
+}
+
+.facility-public-label span {
+  background: rgba(120, 53, 15, 0.90);
+}
+
+.facility-municipal-label span {
+  background: rgba(5, 46, 22, 0.92);
+}
+
+/* زيادة وضوح أسماء الأحياء */
+.neighborhood-name-label span {
+  font-size: 12px !important;
+  color: #00f5ff !important;
+  text-shadow:
+    -1px -1px 0 #00151f,
+     1px -1px 0 #00151f,
+    -1px  1px 0 #00151f,
+     1px  1px 0 #00151f,
+     0 2px 5px rgba(0,0,0,0.85) !important;
+}
+.search-target-label {
+  background: transparent !important;
+  border: none !important;
+}
+
+.search-target-label button {
+  background: #facc15;
+  color: #111827;
+  border: 2px solid #ffffff;
+  border-radius: 999px;
+  padding: 6px 13px;
+  font-family: "Cairo", Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 900;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.35);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.search-target-label button:hover {
+  background: #f59e0b;
+}
+.swatch.road {
+  background: #991b1b !important;
+}
+
+.entrance-name-label {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.entrance-name-label::before {
+  display: none !important;
+}
+
+.entrance-name-label {
+  color: #facc15 !important;
+  font-family: "Cairo", Arial, sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 900 !important;
+  padding: 0 !important;
+  text-shadow:
+    -1px -1px 0 #3b2f05,
+     1px -1px 0 #3b2f05,
+    -1px  1px 0 #3b2f05,
+     1px  1px 0 #3b2f05,
+     0 2px 5px rgba(0,0,0,0.85) !important;
+}
+#facilityDetailImageBox {
+  width: 100%;
+  margin: 16px 0;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #f3f4f6;
+  border: 1px solid rgba(15, 49, 85, 0.12);
+  box-shadow: 0 5px 16px rgba(15, 23, 42, 0.12);
+}
+
+#facilityDetailImage {
+  display: block;
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (max-width: 700px) {
+  #facilityDetailImage {
+    height: 155px;
+  }
+}
+/* تصغير اسم المرفق وجعله في سطر واحد */
+#detailTitle {
+  font-size: 18px !important;
+  line-height: 1.3 !important;
+  white-space: nowrap !important;
+  margin: 8px 0 !important;
+}

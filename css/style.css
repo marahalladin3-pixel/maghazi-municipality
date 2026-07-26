@@ -2775,3 +2775,200 @@ h2 {
   display: inline !important;
   direction: ltr !important;
 }
+/* الخريطة التفاعلية داخل الصفحة الرئيسية */
+.interactive-map-section {
+  padding: 80px 0 95px;
+  background: linear-gradient(180deg, #ffffff 0%, #faf6ef 100%);
+}
+
+.interactive-map-card {
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid rgba(122, 22, 34, 0.15);
+  border-radius: 26px;
+  box-shadow: 0 25px 65px rgba(79, 11, 16, 0.15);
+}
+
+.interactive-map-toolbar {
+  min-height: 90px;
+  padding: 20px 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-bottom: 1px solid #eadfd3;
+  background: #fffaf5;
+}
+
+.interactive-map-toolbar > div {
+  display: grid;
+  gap: 3px;
+}
+
+.interactive-map-toolbar strong {
+  color: #4f0b10;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.interactive-map-toolbar span {
+  color: #746a64;
+  font-size: 14px;
+}
+
+.interactive-map-frame {
+  width: 100%;
+  height: 760px;
+  background: #f5eee6;
+}
+
+.interactive-map-frame iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+@media (max-width: 820px) {
+  .interactive-map-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .interactive-map-toolbar .btn {
+    width: 100%;
+  }
+
+  .interactive-map-frame {
+    height: 650px;
+  }
+}
+
+/* زر فتح الخريطة في صفحة مستقلة */
+.map-launch-section {
+  padding: 75px 0;
+  background: linear-gradient(180deg, #ffffff, #faf5ee);
+}
+
+.map-launch-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 35px;
+  padding: 48px 55px;
+  background: #ffffff;
+  border: 1px solid #eadfd3;
+  border-radius: 28px;
+  box-shadow: 0 22px 55px rgba(79, 11, 16, 0.12);
+}
+
+.map-launch-content {
+  max-width: 760px;
+}
+
+.map-launch-content h2 {
+  margin: 5px 0 12px;
+  color: #4f0b10;
+  font-size: clamp(28px, 4vw, 43px);
+  font-weight: 900;
+}
+
+.map-launch-content p {
+  margin-bottom: 24px;
+  color: #746a64;
+  font-size: 17px;
+  line-height: 2;
+}
+
+.map-launch-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 12px 25px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #9f1f27, #7f151d);
+  border-radius: 14px;
+  font-weight: 900;
+  box-shadow: 0 14px 28px rgba(159, 31, 39, 0.22);
+  transition: 0.25s;
+}
+
+.map-launch-btn:hover {
+  transform: translateY(-3px);
+  background: linear-gradient(135deg, #7f151d, #4f0b10);
+}
+
+.map-launch-preview {
+  position: relative;
+  width: 270px;
+  height: 180px;
+  flex: 0 0 270px;
+  overflow: hidden;
+  border: 6px solid #fff;
+  border-radius: 24px;
+  box-shadow: 0 18px 42px rgba(79, 11, 16, 0.18);
+}
+
+.map-launch-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #f5eee6;
+}
+
+.map-launch-preview::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 40%,
+    rgba(79, 11, 16, 0.78)
+  );
+}
+
+.map-launch-preview span {
+  position: absolute;
+  right: 16px;
+  bottom: 13px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  font-weight: 900;
+}
+
+@media (max-width: 768px) {
+  .map-launch-preview {
+    width: 100%;
+    height: 210px;
+    flex-basis: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .map-launch-section {
+    padding: 50px 0;
+  }
+
+  .map-launch-card {
+    padding: 30px 24px;
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .map-launch-icon {
+    width: 105px;
+    height: 105px;
+    flex-basis: 105px;
+    border-radius: 26px;
+    font-size: 42px;
+  }
+
+  .map-launch-btn {
+    width: 100%;
+  }
+}

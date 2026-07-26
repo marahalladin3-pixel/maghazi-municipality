@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="الموقع الإلكتروني لبلدية المغازي">
+  <title>الهيكلية الإدارية | بلدية المغازي</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .chart-wrap{
+      width:100%;
+      overflow-x:auto;
+      padding:0;
+      background:#fff;
+    }
+    svg{
+      display:block;
+      width:1250px;
+      height:560px;
+      margin:0 auto;
+      background:#fff;
+    }
+    .line{
+      fill:none;
+      stroke:#222;
+      stroke-width:2;
+      stroke-linecap:square;
+      stroke-linejoin:miter;
+    }
+    .node{
+      stroke-width:1;
+    }
+    .label{
+      font-family:Tahoma, Arial, sans-serif;
+      font-size:16px;
+      font-weight:700;
+      text-anchor:middle;
+      dominant-baseline:middle;
+      direction:rtl;
+      unicode-bidi:plaintext;
+      fill:#111;
+    }
+    .small{font-size:15px}
+    .title-text{
+      font-size:21px;
+      font-weight:700;
+      fill:#fff;
+    }
+    .white{fill:#fff}
+    .signature{
+      font-family:Tahoma, Arial, sans-serif;
+      font-size:15px;
+      font-weight:700;
+      fill:#b30000;
+      direction:rtl;
+      unicode-bidi:plaintext;
+    }
+
+    /* === تنسيقات أزرار الدوائر الجديدة لتطابق الصورة الثانية === */
+    .departments {
+      padding: 40px 20px;
+      background-color: #fff;
+    }
+
+    .departments .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .departments .row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .dept-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #525252;
+      color: #ffffff;
+      font-family: 'Cairo', sans-serif;
+      font-weight: 700;
+      font-size: 18px;
+      padding: 16px 10px;
+      border-radius: 6px;
+      text-decoration: none;
+      text-align: center;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .dept-btn:hover {
+      background-color: #3b3b3b;
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+      .departments .row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media print{
+      @page{size:landscape;margin:0}
+      body{margin:0}
+      .chart-wrap{overflow:visible}
+      svg{width:100%;height:auto}
+    }
+  </style>
+
+<link rel="stylesheet" href="css/theme.css">
+<link rel="stylesheet" href="css/internal-pages.css">
+</head>
+<body class="page-internal page-text">
+
+
+<header class="site-header">
+  <div class="topbar">
+    <div class="shell topbar-inner">
+      <span><i class="fa-solid fa-location-dot"></i> مخيم المغازي - محافظة الوسطى - قطاع غزة</span>
+      <div class="topbar-links">
+        <a href="https://www.facebook.com/maghazimun/?locale=ar_AR" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/maghazi.mun/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <nav class="navbar" aria-label="القائمة الرئيسية">
+    <div class="shell nav-inner">
+      <a class="brand" href="index.html" aria-label="بلدية المغازي">
+        <img src="img/logo.jpeg" alt="شعار بلدية المغازي">
+        <div>
+          <strong>بلدية المغازي</strong>
+          <small>معكم وبكم نحو خدمة أفضل</small>
+        </div>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-label="فتح القائمة" aria-expanded="false">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <ul class="nav-links">
+        <li><a href="index.html">الرئيسية</a></li>
+        <li class="dropdown">
+          <a href="about-us.html" class="active drop-link">من نحن <i class="fa-solid fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="about-municipality.html">عن البلدية</a></li>
+            <li><a href="mayor-profile.html">عن الرئيس</a></li>
+            <li><a href="former-mayors.html">الرؤساء السابقين</a></li>
+            <li><a href="organizational-structure.html">الهيكلية الإدارية</a></li>
+            <li><a href="projects-achievements.html">المشاريع والإنجازات</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="services.html" class=" drop-link">الخدمات <i class="fa-solid fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="water-services.html">خدمات المياه</a></li>
+            <li><a href="wastwater.html">الصرف الصحي</a></li>
+            <li><a href="public-cleanliness.html">النظافة العامة</a></li>
+            <li><a href="roads-maintenance.html">الطرق والصيانة</a></li>
+            <li><a href="licensing-planning.html">التراخيص والتنظيم</a></li>
+            <li><a href="health-environment.html">الصحة والبيئة</a></li>
+          </ul>
+        </li>
+        <li><a href="news.html">الأخبار</a></li>
+        <li><a href="media-center.html">المركز الإعلامي</a></li>
+        <li><a href="municipality-location.html">موقع البلدية</a></li>
+        <li><a href="about-maghazi.html">عن المخيم</a></li>
+      </ul>
+
+      <a href="services.html" class="portal-btn"><i class="fa-solid fa-users-gear"></i> بوابة الخدمات</a>
+    </div>
+  </nav>
+</header>
+
+<svg viewBox="0 0 1720 1314" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" role="img" lang="ar" dir="rtl" style="width:100%;height:auto;display:block;max-width:1720px">
+<title>الهيكل التنظيمي لبلدية المغازي</title>
+<desc>مخطط تنظيمي يوضح الهيكل الإداري لبلدية المغازي بدءاً من المجلس البلدي وحتى الأقسام الفرعية</desc>
+<style>text{font-family:'Inter','Segoe UI',Arial,sans-serif;font-weight:700;}
+a.node-link{cursor:pointer;}
+a.node-link:hover .box-fill{opacity:0.82;}
+a.node-link:hover .box-halo{opacity:0.9;}
+a.node-link:focus .box-fill{opacity:0.82;}
+</style>
+<defs>
+<marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+<path d="M1 1L9 5L1 9Z" fill="#555"/>
+</marker>
+</defs>
+<rect x="0" y="0" width="1720" height="1314" fill="#ffffff"/>
+<rect class="box-halo" x="485" y="15" width="710" height="80" rx="19" fill="none" stroke="#7f1414" stroke-width="1.5" opacity="0.55"/>
+<rect class="box-fill" x="490" y="20" width="700" height="70" rx="14" fill="#B91C1C" stroke="#7f1414" stroke-width="1.5"/>
+<text x="840.0" y="55.0" text-anchor="middle" dominant-baseline="central" font-size="24" font-weight="700" fill="#ffffff">الإطار العام للهيكلية التنظيمية لبلدية المغازي</text>
+<line x1="840" y1="90" x2="840" y2="140" stroke="#555" stroke-width="1.5"/>
+<a href="https://example.com/placeholder-2" target="_blank" rel="noopener" class="node-link" data-label="المجلس البلدي">
+<title>المجلس البلدي</title>
+<rect class="box-halo" x="735" y="135" width="210" height="70" rx="15" fill="none" stroke="#0d2323" stroke-width="1.5" opacity="0.55"/>
+<rect class="box-fill" x="740" y="140" width="200" height="60" rx="10" fill="#1B3B3B" stroke="#0d2323" stroke-width="1.5"/>
+<text x="840.0" y="170.0" text-anchor="middle" dominant-baseline="central" font-size="18" font-weight="700" fill="#ffffff">المجلس البلدي</text>
+</a>
+<a href="https://example.com/placeholder-3" target="_blank" rel="noopener" class="node-link" data-label="لجان المجلس البلدي">
+<title>لجان المجلس البلدي</title>
+<rect class="box-halo" x="455" y="135" width="230" height="70" rx="15" fill="none" stroke="#a67c00" stroke-width="1.5" opacity="0.55"/>
+<rect class="box-fill" x="460" y="140" width="220" height="60" rx="10" fill="#F6B90A" stroke="#a67c00" stroke-width="1.5"/>
+<text x="570.0" y="170.0" text-anchor="middle" dominant-baseline="central" font-size="17" font-weight="700" fill="#3d2c00">لجان المجلس البلدي</text>
+</a>
+<line x1="680" y1="170" x2="740" y2="170" stroke="#555" stroke-width="1.5"/>
+<line x1="940" y1="170" x2="1000" y2="170" stroke="#555" stroke-width="1.5"/>
+<a href="https://example.com/placeholder-4" target="_blank" rel="noopener" class="node-link" data-label="الرقابة الداخلية">
+<title>الرقابة الداخلية</title>
+<rect class="box-halo" x="995" y="135" width="230" height="70" rx="15" fill="none" stroke="#a67c00" stroke-width="1.5" opacity="0.55"/>
+<rect class="box-fill" x="1000" y="140" width="220" height="60" rx="10" fill="#F6B90A" stroke="#a67c00" stroke-width="1.5"/>
+<text x="1110.0" y="170.0" text-anchor="middle" dominant-baseline="central" font-size="17" font-weight="700" fill="#3d2c00">الرقابة الداخلية</text>
+</a>
+<a href="https://example.com/placeholder-5" target="_blank" rel="noopener" class="node-link" data-label="تدقيق خارجي">
+<title>تدقيق خارجي</title>
+<rect class="box-halo" x="995" y="240" width="230" height="60" rx="13" fill="none" stroke="#888888" stroke-width="1.5" opacity="0.55"/>
+<rect class="box-fill" x="1000" y="245" width="220" height="50" rx="8" fill="#ffffff" stroke="#888888" stroke-width="1.5"/>
+<text x="1110.0" y="270.0" text-anchor="middle" dominant-baseline="central" font-size="17" font-weight="700" fill="#333333">تدقيق خارجي</text>
+</a>
+<line x1="1000" y1="270" x2="840" y2="270" stroke="#555" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="840" y1="200" x2="840" y2="340" stroke="#555" stroke-width="1.5"/>
+<a href="https://example.com/placeholder-6" target="_blank" rel="noopener" class="node-link" data-label="رئيس البلدية">
+<title>رئيس البلدية</title>
+<rect class="box-halo" x="735" y="335" width="210" height="70" rx="15" fill="none" stroke="#4d7628" stroke-width="1.5" opacity="0.55"/>
+<rect class="box-fill" x="740" y="340" width="200" height="60" rx="10" fill="#6FA33B" stroke="#4d7628" stroke-width="1.5"/>
+<text x="840.0" y="370.0" text-anchor="middle" dominant-baseline="central" font-size="18" font-weight="700" fill="#ffffff">رئيس البلدية</text>
+</a>
+<a href="https://example.com/placeholder-7" target="_blank" rel="noopener" class="node-link" data-label="المستشار القانوني">
+<title>المستشار القانوني</title>
+<rect class="box-halo" x="395" y="335" width="230" height="70" rx="15" fill="none" stroke="#b96a3e" stroke-width="1.5" opacity="0.55"/>
+<rect class="box-fill" x="400" y="340" width="220" height="60" rx="10" fill="#F0A882" stroke="#b96a3e" stroke-width="1.5"/>
+<text x="510.0" y="370.0" text-anchor="middle" dominant-baseline="central" font-size="17" font-weight="700" fill="#4a2410">المستشار القانوني</text>
+</a>
+<line x1="620" y1="370" x2="740" y2="370" stroke="#555" stroke-width="1.5"/>
+<a href="https://example.com/placeholder-8" target="_blank" rel="noopener" class="node-link" data-label="سكرتير البلدية">
+<title>سكرتير البلدية</title>
+<rect class="box-halo" x="1155" y="335" width="230" height="70" rx="15" fill="none" stroke="#4d7628" stroke-width="1.5" opacity="0.55"/>
+<rect class="box-fill" x="1160" y="340" width="220" height="60" rx="10" fill="#6FA33B" stroke="#4d7628" stroke-width="1.5"/>
+<text x="1270.0" y="370.0" text-anchor="middle" dominant-baseline="central" font-size="17" font-weight="700" fill="#ffffff">سكرتير البلدية</text>
+</a>
+<line x1="940" y1="370" x2="1160" y2="370" stroke="#555" stroke-width="1.5"/>
+<line x1="1270" y1="400" x2="1270" y2="430" stroke="#555" stroke-width="1.5"/>
+<a href="https://example.com/placeholder-9" target="_blank" rel="noopener" class="node-link" data-label="وحدة العلاقات العامة وخدمات الجمهور">
+<title>وحدة العلاقات العامة وخدمات الجمهور</title>
+<rect class="box-halo" x="1135" y="425" width="270" height="80" rx="15" fill="none" stroke="#2f6cb0" stroke-width="1.5" opacity="0.55"/>
+<rect class="box-fill" x="1140" y="430" width="260" height="70" rx="10" fill="#5B9BD5" stroke="#2f6cb0" stroke-width="1.5"/>
+<text x="1270.0" y="454.2" text-anchor="middle" dominant-baseline="central" font-size="16" font-weight="700" fill="#0d2c4d">وحدة العلاقات العامة</text>
+<text x="1270.0" y="475.8" text-anchor="middle" dominant-baseline="central" font-size="16" font-weight="700" fill="#0d2c4d">وخدمات الجمهور</text>
+</a>
+<line x1="500" y1="400" x2="500" y2="425" stroke="#555" stroke-width="1.5"/>
+<line x1="270" y1="425" x2="730" y2="425" stroke="#555" stroke-width="1.5"/>
+<line x1="270" y1="425" x2="270" y2="450" stroke="#555" stroke-width="1.5"/>
+<line x1="500" y1="425" x2="500" y2="450" stroke="#555" stroke-width="1.5"/>
+<line x1="730" y1="425" x2="730" y2="450" stroke="#555" stroke-width="1.5"/>
+<a href="https://example.com/placeholder-10" target="_blank" rel="noopener" class="node-link" data-label="قسم الإيجارات">
+<title>قسم الإيجارات</title>
+<rect class="box-halo" x="165" y="445" width="210" height="70" rx="15" fill="none" stroke="#c98a55" stroke-width="1.5" opacity="0.55"/>
+<rect class="box-fill" x="170" y="450" width="200" height="60" rx="10" fill="#FBDFC8" stroke="#c98a55" stroke-width="1.5"/>
+<text x="270.0" y="480.0" text-anchor="middle" dominant-baseline="central" font-size="16" font-weight="700" fill="#4a2410">قسم الإيجارات</text>
+</a>
+<a href="https://example.com/placeholder-11" target="_blank" rel="noopener" class="node-link" data-label="قسم الحرف والصناعات">
+<title>قسم الحرف والصناعات</title>
+<rect class="box-halo" x="395" y="445" width="210" height="70" rx="15" fill="none" stroke="#c98a55" stroke-width="1.5" opacity="0.55"/>
+<rect class="box-fill" x="400" y="450" width="200" height="60" rx="10" fill="#FBDFC8" stroke="#c98a55" stroke-width="1.5"/>
+<text x="500.0" y="480.0" text-anchor="middle" dominant-baseline="central" font-size="16" font-weight="700" fill="#4a2410">قسم الحرف والصناعات</text>
+</a>
+<a href="https://example.com/placeholder-12" target="_blank" rel="noopener" class="node-link" data-label="قسم المحكمة">
+<title>قسم المحكمة</title>
+<rect class="box-halo" x="625" y="445" width="210" height="70" rx="15" fill="none" stroke="#c98a55" stroke-width="1.5" opacity="0.55"/>
+<rect class="box-fill" x="630" y="450" width="200" height="60" rx="10" fill="#FBDFC8" stroke="#c98a55" stroke-width="1.5"/>
+<text x="730.0" y="480.0" text-anchor="middle" dominant-baseline="central" font-size="16" font-weight="700" fill="#4a2410">قسم المحكمة</text>
+</a>
+<line x1="840" y1="400" x2="840" y2="525" stroke="#555" stroke-width="1.5"/>
+<line x1="280" y1="525" x2="1510" y2="525" stroke="#555" stroke-width="1.5"/>
+<line x1="280" y1="525" x2="280" y2="565" stroke="#555" stroke-width="1.5"/>
+<line x1="690" y1="525" x2="690" y2="565" stroke="#555" stroke-width="1.5"/>
+<line x1="1100" y1="525" x2="1100" y2="565" stroke="#555" stroke-width="1.5"/>
+<line x1="1510" y1="525" x2="1510" y2="565" stroke="#555" stroke-width="1.5"/>
+<a href="https://example.com/placeholder-13" target="_blank" rel="noopener" class="node-link" data-label="الدائرة الفنية">
+<title>الدائرة الفنية</title>
+<rect class="box-halo" x="125.0" y="560" width="310" height="80" rx="15" fill="none" stroke="#5c8a2f" stroke-width="1.5" opacity="0.55"/>
+<rect class="box-fill" x="130.0" y="565" width="300" height="70" rx="10" fill="#8FC15C" stroke="#5c8a2f" stroke-width="1.5"/>
+<text x="280.0" y="600.0" text-anchor="middle" dominant-baseline="central" font-size="18" font-weight="700" fill="#1c3305">الدائرة الفنية</text>
+</a>
+<a href="https://example.com/placeholder-14" target="_blank" rel="noopener" class="node-link" data-label="دائرة الصحة والمياه والصرف الصحي">
+<title>دائرة الصحة والمياه والصرف الصحي</title>
+<rect class="box-halo" x="535.0" y="560" width="310" height="80" rx="15" fill="none" stroke="#b58c1a" stroke-width="1.5" opacity="0.55"/>
+<rect class="box-fill" x="540.0" y="565" width="300" height="70" rx="10" fill="#F6C64B" stroke="#b58c1a" stroke-width="1.5"/>
+<text x="690.0" y="587.85" text-anchor="middle" dominant-baseline="central" font-size="18" font-weight="700" fill="#4a3400">دائرة الصحة والمياه</text>
+<text x="690.0" y="612.15" text-anchor="middle" dominant-baseline="central" font-size="18" font-weight="700" fill="#4a3400">والصرف الصحي</text>
+</a>
+<a href="https://example.com/placeholder-15" target="_blank" rel="noopener" class="node-link" data-label="دائرة الشؤون الإدارية">
+<title>دائرة الشؤون الإدارية</title>
+<rect class="box-halo" x="945.0" y="560" width="310" height="80" rx="15" fill="none" stroke="#b96a3e" stroke-width="1.5" opacity="0.55"/>
+<rect class="box-fill" x="950.0" y="565" width="300" height="70" rx="10" fill="#F0A882" stroke="#b96a3e" stroke-width="1.5"/>
+<text x="1100.0" y="600.0" text-anchor="middle" dominant-baseline="central" font-size="18" font-weight="700" fill="#4a2410">دائرة الشؤون الإدارية</text>
+</a>
+<a href="https://example.com/placeholder-16" target="_blank" rel="noopener" class="node-link" data-label="دائرة الشؤون المالية">
+<title>دائرة الشؤون المالية</title>
+<rect class="box-halo" x="1355.0" y="560" width="310" height="80" rx="15" fill="none" stroke="#2f6cb0" stroke-width="1.5" opacity="0.55"/>
+<rect class="box-fill" x="1360.0" y="565" width="300" height="70" rx="10" fill="#5B9BD5" stroke="#2f6cb0" stroke-width="1.5"/>
+<text x="1510.0" y="600.0" text-anchor="middle" dominant-baseline="central" font-size="18" font-weight="700" fill="#0d2c4d">دائرة الشؤون المالية</text>
+</a>
+<line x1="280" y1="635" x2="280" y2="1166.0" stroke="#999" stroke-width="1.5"/>
+<a href="https://example.com/placeholder-17" target="_blank" rel="noopener" class="node-link" data-label="قسم التخطيط الحضري">
+<title>قسم التخطيط الحضري</title>
+<rect class="box-halo" x="125.0" y="675" width="310" height="66" rx="13" fill="none" stroke="#8fbf5f" stroke-width="1.5" opacity="0.55"/>
+<rect class="box-fill" x="130.0" y="680" width="300" height="56" rx="8" fill="#E6F3D9" stroke="#8fbf5f" stroke-width="1.5"/>
+<text x="280.0" y="708.0" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="700" fill="#25400d">قسم التخطيط الحضري</text>
+</a>
+<a href="https://example.com/placeholder-18" target="_blank" rel="noopener" class="node-link" data-label="قسم الأبنية والتنظيم">
+<title>قسم الأبنية والتنظيم</title>
+<rect class="box-halo" x="125.0" y="749" width="310" height="66" rx="13" fill="none" stroke="#8fbf5f" stroke-width="1.5" opacity="0.55"/>
+<rect class="box-fill" x="130.0" y="754" width="300" height="56" rx="8" fill="#E6F3D9" stroke="#8fbf5f" stroke-width="1.5"/>
+<text x="280.0" y="782.0" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="700" fill="#25400d">قسم الأبنية والتنظيم</text>
+</a>
+<a href="https://example.com/placeholder-19" target="_blank" rel="noopener" class="node-link" data-label="قسم المواصفات والمشاريع">
+<title>قسم المواصفات والمشاريع</title>
+<rect class="box-halo" x="125.0" y="823" width="310" height="66" rx="13" fill="none" stroke="#8fbf5f" stroke-width="1.5" opacity="0.55"/>
+<rect class="box-fill" x="130.0" y="828" width="300" height="56" rx="8" fill="#E6F3D9" stroke="#8fbf5f" stroke-width="1.5"/>
+<text x="280.0" y="856.0" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="700" fill="#25400d">قسم المواصفات والمشاريع</text>
+</a>
+<a href="https://example.com/placeholder-20" target="_blank" rel="noopener" class="node-link" data-label="قسم إدارة المشاريع والعطاءات">
+<title>قسم إدارة المشاريع والعطاءات</title>
+<rect class="box-halo" x="125.0" y="897" width="310" height="80" rx="13" fill="none" stroke="#8fbf5f" stroke-width="1.5" opacity="0.55"/>
+<rect class="box-fill" x="130.0" y="902" width="300" height="70" rx="8" fill="#E6F3D9" stroke="#8fbf5f" stroke-width="1.5"/>
+<text x="280.0" y="926.875" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="700" fill="#25400d">قسم إدارة المشاريع</text>
+<text x="280.0" y="947.125" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="700" fill="#25400d">والعطاءات</text>
+</a>
+<a href="https://example.com/placeholder-21" target="_blank" rel="noopener" class="node-link" data-label="قسم GIS">
+<title>قسم GIS</title>
+<rect class="box-halo" x="125.0" y="985" width="310" height="66" rx="13" fill="none" stroke="#8fbf5f" stroke-width="1.5" opacity="0.55"/>
+<rect class="box-fill" x="130.0" y="990" width="300" height="56" rx="8" fill="#E6F3D9" stroke="#8fbf5f" stroke-width="1.5"/>
+<text x="280.0" y="1018.0" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="700" fill="#25400d">قسم GIS</text>
+</a>
+<a href="https://example.com/placeholder-22" target="_blank" rel="noopener" class="node-link" data-label="قسم الأشغال العامة">
+<title>قسم الأشغال العامة</title>
+<rect class="box-halo" x="125.0" y="1059" width="310" height="66" rx="13" fill="none" stroke="#8fbf5f" stroke-width="1.5" opacity="0.55"/>
+<rect class="box-fill" x="130.0" y="1064" width="300" height="56" rx="8" fill="#E6F3D9" stroke="#8fbf5f" stroke-width="1.5"/>
+<text x="280.0" y="1092.0" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="700" fill="#25400d">قسم الأشغال العامة</text>
+</a>
+<a href="https://example.com/placeholder-23" target="_blank" rel="noopener" class="node-link" data-label="قسم المساحة">
+<title>قسم المساحة</title>
+<rect class="box-halo" x="125.0" y="1133" width="310" height="66" rx="13" fill="none" stroke="#8fbf5f" stroke-width="1.5" opacity="0.55"/>
+<rect class="box-fill" x="130.0" y="1138" width="300" height="56" rx="8" fill="#E6F3D9" stroke="#8fbf5f" stroke-width="1.5"/>
+<text x="280.0" y="1166.0" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="700" fill="#25400d">قسم المساحة</text>
+</a>
+<line x1="690" y1="635" x2="690" y2="930.0" stroke="#999" stroke-width="1.5"/>
+<a href="https://example.com/placeholder-24" target="_blank" rel="noopener" class="node-link" data-label="قسم النفايات الصلبة">
+<title>قسم النفايات الصلبة</title>
+<rect class="box-halo" x="535.0" y="675" width="310" height="66" rx="13" fill="none" stroke="#d9ac3d" stroke-width="1.5" opacity="0.55"/>
+<rect class="box-fill" x="540.0" y="680" width="300" height="56" rx="8" fill="#FDF0D2" stroke="#d9ac3d" stroke-width="1.5"/>
+<text x="690.0" y="708.0" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="700" fill="#4a3400">قسم النفايات الصلبة</text>
+</a>
+<a href="https://example.com/placeholder-25" target="_blank" rel="noopener" class="node-link" data-label="قسم الرقابة الصحية">
+<title>قسم الرقابة الصحية</title>
+<rect class="box-halo" x="535.0" y="749" width="310" height="66" rx="13" fill="none" stroke="#d9ac3d" stroke-width="1.5" opacity="0.55"/>
+<rect class="box-fill" x="540.0" y="754" width="300" height="56" rx="8" fill="#FDF0D2" stroke="#d9ac3d" stroke-width="1.5"/>
+<text x="690.0" y="782.0" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="700" fill="#4a3400">قسم الرقابة الصحية</text>
+</a>
+<a href="https://example.com/placeholder-26" target="_blank" rel="noopener" class="node-link" data-label="قسم المياه">
+<title>قسم المياه</title>
+<rect class="box-halo" x="535.0" y="823" width="310" height="66" rx="13" fill="none" stroke="#d9ac3d" stroke-width="1.5" opacity="0.55"/>
+<rect class="box-fill" x="540.0" y="828" width="300" height="56" rx="8" fill="#FDF0D2" stroke="#d9ac3d" stroke-width="1.5"/>
+<text x="690.0" y="856.0" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="700" fill="#4a3400">قسم المياه</text>
+</a>
+<a href="https://example.com/placeholder-27" target="_blank" rel="noopener" class="node-link" data-label="قسم الصرف الصحي">
+<title>قسم الصرف الصحي</title>
+<rect class="box-halo" x="535.0" y="897" width="310" height="66" rx="13" fill="none" stroke="#d9ac3d" stroke-width="1.5" opacity="0.55"/>
+<rect class="box-fill" x="540.0" y="902" width="300" height="56" rx="8" fill="#FDF0D2" stroke="#d9ac3d" stroke-width="1.5"/>
+<text x="690.0" y="930.0" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="700" fill="#4a3400">قسم الصرف الصحي</text>
+</a>
+<line x1="1100" y1="635" x2="1100" y2="884.0" stroke="#999" stroke-width="1.5"/>
+<a href="https://example.com/placeholder-28" target="_blank" rel="noopener" class="node-link" data-label="قسم الموارد البشرية والخدمات الإدارية">
+<title>قسم الموارد البشرية والخدمات الإدارية</title>
+<rect class="box-halo" x="945.0" y="675" width="310" height="80" rx="13" fill="none" stroke="#d99a6c" stroke-width="1.5" opacity="0.55"/>
+<rect class="box-fill" x="950.0" y="680" width="300" height="70" rx="8" fill="#FBE0D0" stroke="#d99a6c" stroke-width="1.5"/>
+<text x="1100.0" y="704.875" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="700" fill="#4a2410">قسم الموارد البشرية</text>
+<text x="1100.0" y="725.125" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="700" fill="#4a2410">والخدمات الإدارية</text>
+</a>
+<a href="https://example.com/placeholder-29" target="_blank" rel="noopener" class="node-link" data-label="قسم الأرشيف المركزي وتكنولوجيا المعلومات">
+<title>قسم الأرشيف المركزي وتكنولوجيا المعلومات</title>
+<rect class="box-halo" x="945.0" y="763" width="310" height="80" rx="13" fill="none" stroke="#d99a6c" stroke-width="1.5" opacity="0.55"/>
+<rect class="box-fill" x="950.0" y="768" width="300" height="70" rx="8" fill="#FBE0D0" stroke="#d99a6c" stroke-width="1.5"/>
+<text x="1100.0" y="792.875" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="700" fill="#4a2410">قسم الأرشيف المركزي</text>
+<text x="1100.0" y="813.125" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="700" fill="#4a2410">وتكنولوجيا المعلومات</text>
+</a>
+<a href="https://example.com/placeholder-30" target="_blank" rel="noopener" class="node-link" data-label="قسم الكراج والورشة">
+<title>قسم الكراج والورشة</title>
+<rect class="box-halo" x="945.0" y="851" width="310" height="66" rx="13" fill="none" stroke="#d99a6c" stroke-width="1.5" opacity="0.55"/>
+<rect class="box-fill" x="950.0" y="856" width="300" height="56" rx="8" fill="#FBE0D0" stroke="#d99a6c" stroke-width="1.5"/>
+<text x="1100.0" y="884.0" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="700" fill="#4a2410">قسم الكراج والورشة</text>
+</a>
+<line x1="1510" y1="635" x2="1510" y2="856.0" stroke="#999" stroke-width="1.5"/>
+<a href="https://example.com/placeholder-31" target="_blank" rel="noopener" class="node-link" data-label="قسم الحسابات والمصاريف">
+<title>قسم الحسابات والمصاريف</title>
+<rect class="box-halo" x="1355.0" y="675" width="310" height="66" rx="13" fill="none" stroke="#7fb0e0" stroke-width="1.5" opacity="0.55"/>
+<rect class="box-fill" x="1360.0" y="680" width="300" height="56" rx="8" fill="#DCEBFA" stroke="#7fb0e0" stroke-width="1.5"/>
+<text x="1510.0" y="708.0" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="700" fill="#0d2c4d">قسم الحسابات والمصاريف</text>
+</a>
+<a href="https://example.com/placeholder-32" target="_blank" rel="noopener" class="node-link" data-label="قسم الموازنة والتدقيق">
+<title>قسم الموازنة والتدقيق</title>
+<rect class="box-halo" x="1355.0" y="749" width="310" height="66" rx="13" fill="none" stroke="#7fb0e0" stroke-width="1.5" opacity="0.55"/>
+<rect class="box-fill" x="1360.0" y="754" width="300" height="56" rx="8" fill="#DCEBFA" stroke="#7fb0e0" stroke-width="1.5"/>
+<text x="1510.0" y="782.0" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="700" fill="#0d2c4d">قسم الموازنة والتدقيق</text>
+</a>
+<a href="https://example.com/placeholder-33" target="_blank" rel="noopener" class="node-link" data-label="قسم الجباية">
+<title>قسم الجباية</title>
+<rect class="box-halo" x="1355.0" y="823" width="310" height="66" rx="13" fill="none" stroke="#7fb0e0" stroke-width="1.5" opacity="0.55"/>
+<rect class="box-fill" x="1360.0" y="828" width="300" height="56" rx="8" fill="#DCEBFA" stroke="#7fb0e0" stroke-width="1.5"/>
+<text x="1510.0" y="856.0" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="700" fill="#0d2c4d">قسم الجباية</text>
+</a>
+<text x="1590" y="1254" text-anchor="end" font-size="18" font-weight="700" fill="#B91C1C">المهندس محمد صبري مصلح</text>
+<text x="1590" y="1284" text-anchor="end" font-size="16" font-weight="400" fill="#333333">رئيس بلدية المغازي</text>
+</svg>
+
+<!-- قسم أزرار الدوائر المُعدل ليكون تماماً مثل الصورة الثانية -->
+<section class="departments">
+  <div class="container">
+    <div class="row top-row">
+      <a href="Administrative-Department.html" class="dept-btn">الدائرة الإدارية</a>
+      <a href="Finance-Department.html" class="dept-btn">الدائرة المالية</a>
+      <a href="Department-Health.html" class="dept-btn">دائرة الصحة والبيئة</a>
+    </div>
+
+    <div class="row bottom-row">
+      <a href="Legal-Department.html" class="dept-btn">الدائرة القانونية</a>
+      <a href="Planning-Department.html" class="dept-btn">دائرة التخطيط والتنظيم</a>
+      <a href="PublicRelations-Department.html" class="dept-btn">دائرة العلاقات العامة والإعلام</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer" id="contact">
+  <div class="shell footer-grid">
+    <div class="footer-card footer-about">
+      <img src="img/logo.jpeg" alt="شعار بلدية المغازي">
+      <h3>بلدية المغازي</h3>
+      <p>منصة تعريفية لخدمات البلدية وأخبارها ومشاريعها، ونافذة تواصل مع المواطنين والمؤسسات الشريكة.</p>
+      <div class="social-links">
+        <a href="https://www.facebook.com/maghazimun/?locale=ar_AR" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/maghazi.mun/" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
+        <a href="municipality-location.html#contact-form"><i class="fa-solid fa-envelope"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-card">
+      <h3>روابط مهمة</h3>
+      <a href="about-municipality.html">عن البلدية</a>
+      <a href="services.html">دليل الخدمات</a>
+      <a href="news.html">الأخبار والإعلانات</a>
+      <a href="projects-achievements.html">المشاريع والإنجازات</a>
+    </div>
+
+    <div class="footer-card">
+      <h3>تواصل معنا</h3>
+      <p><i class="fa-solid fa-location-dot"></i> مخيم المغازي - محافظة الوسطى - قطاع غزة</p>
+      <p><i class="fa-solid fa-clock"></i> الأحد - الخميس: 8:00 صباحًا - 2:00 ظهرًا</p>
+      <p><i class="fa-solid fa-circle-info"></i> +970 59 123 4567</p>
+    </div>
+
+    <div class="footer-card newsletter">
+      <h3>اقتراحاتكم تهمنا</h3>
+      <p>استخدم صفحة موقع البلدية لإرسال ملاحظات أو استفسارات حول الخدمات والمرافق العامة.</p>
+      <a class="btn btn-gold" href="municipality-location.html#contact-form">صندوق الشكاوى</a>
+    </div>
+  </div>
+  <div class="copyright">
+    <div class="shell">© <span id="year"></span> بلدية المغازي - جميع الحقوق محفوظة</div>
+  </div>
+</footer>
+<button class="back-to-top" aria-label="العودة للأعلى"><i class="fa-solid fa-arrow-up"></i></button>
+<script src="js/main.js"></script>
+</body>
+</html>

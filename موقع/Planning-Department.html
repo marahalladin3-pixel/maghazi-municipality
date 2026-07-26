@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="الموقع الإلكتروني لبلدية المغازي - دائرة التخطيط والتنظيم">
+  <title>دائرة التخطيط والتنظيم | بلدية المغازي</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  
+<style>
+.section-title{
+    width:100%;
+    height:170px;
+    background:#fff;
+    border-radius:28px;
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    justify-content:flex-start;
+    padding:0 70px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+/* الزخرفة اليسرى */
+.section-title::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+    width:320px;
+    height:100%;
+    background:
+    radial-gradient(circle,#d9d9d9 2px,transparent 2px);
+    background-size:22px 22px;
+    opacity:.25;
+}
+
+/* الشريط العنابي */
+.section-title::after{
+    content:"";
+    position:absolute;
+    right:0;
+    top:0;
+    width:18px;
+    height:100%;
+    background:#871919;
+}
+
+.title-content{
+    display:flex;
+    align-items:center;
+    gap:25px;
+    z-index:2;
+}
+
+.icon-box{
+    width:82px;
+    height:82px;
+    border-radius:50%;
+    background:#cbc9c9;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:38px;
+    box-shadow:0 8px 20px rgba(13,79,60,.3);
+}
+
+.separator{
+    width:2px;
+    height:70px;
+    background:#caa04a;
+}
+
+h3{
+    color:#123d2f;
+    font-size:30px;
+    font-weight:800;
+    letter-spacing:.5px;
+}
+
+@media(max-width:768px){
+  .section-title{
+      height:auto;
+      padding:35px 25px;
+  }
+
+  h2{
+      font-size:34px;
+  }
+
+  .icon-box{
+      width:65px;
+      height:65px;
+      font-size:30px;
+  }
+
+  .separator{
+      height:50px;
+  }
+}
+</style>
+
+<link rel="stylesheet" href="css/theme.css">
+<link rel="stylesheet" href="css/internal-pages.css">
+</head>
+<body class="page-internal page-Planning-Department">
+
+<header class="site-header">
+  <div class="topbar">
+    <div class="shell topbar-inner">
+      <span><i class="fa-solid fa-location-dot"></i> مخيم المغازي - محافظة الوسطى - قطاع غزة</span>
+      <div class="topbar-links">
+        <a href="https://www.facebook.com/maghazimun/?locale=ar_AR" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/maghazi.mun/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <nav class="navbar" aria-label="القائمة الرئيسية">
+    <div class="shell nav-inner">
+      <a class="brand" href="index.html" aria-label="بلدية المغازي">
+        <img src="img/logo.jpeg" alt="شعار بلدية المغازي">
+        <div>
+          <strong>بلدية المغازي</strong>
+          <small>معكم وبكم نحو خدمة أفضل</small>
+        </div>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-label="فتح القائمة" aria-expanded="false">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <ul class="nav-links">
+        <li><a href="index.html">الرئيسية</a></li>
+        <li class="dropdown">
+          <a href="about-us.html" class="active drop-link">من نحن <i class="fa-solid fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="about-municipality.html">عن البلدية</a></li>
+            <li><a href="mayor-profile.html">عن الرئيس</a></li>
+            <li><a href="former-mayors.html">الرؤساء السابقين</a></li>
+            <li><a href="organizational-structure.html">الهيكلية الإدارية</a></li>
+            <li><a href="projects-achievements.html">المشاريع والإنجازات</a></li>
+          </ul>
+        </li>
+     <li class="dropdown">
+          <a href="services.html" class="drop-link">الخدمات <i class="fa-solid fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="water-services.html">خدمات المياه</a></li>
+            <li><a href="wastwater.html">الصرف الصحي</a></li>
+            <li><a href="public-cleanliness.html">النظافة العامة</a></li>
+            <li><a href="roads-maintenance.html">الطرق والصيانة</a></li>
+            <li><a href="licensing-planning.html">التراخيص والتنظيم</a></li>
+            <li><a href="health-environment.html">الصحة والبيئة</a></li>
+          </ul>
+        </li>
+        <li><a href="news.html">الأخبار</a></li>
+        <li><a href="media-center.html">المركز الإعلامي</a></li>
+        <li><a href="municipality-location.html">موقع البلدية</a></li>
+        <li><a href="about-maghazi.html">عن المخيم</a></li>
+      </ul>
+
+      <a href="services.html" class="portal-btn"><i class="fa-solid fa-users-gear"></i> بوابة الخدمات</a>
+    </div>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <div class="shell page-hero-content">
+    <span class="eyebrow">بلدية المغازي</span>
+    <h1>دائرة التخطيط والتنظيم</h1>
+    <p class="lead-text">
+      نعمل على صياغة الرؤية العمرانية، تنظيم الشوارع والمباني، إصدار التراخيص الهندسية، وضمان التنمية الحضرية المستدامة للمخيم.
+    </p>
+  </div>
+</section>
+
+<section class="camp-info">
+  <div style="margin:20px;" class="info-box">
+
+    <h3>مقدمة:</h3>
+
+    <p>
+      تُعد دائرة التخطيط والتنظيم الركيزة الأساسية في رسم الملامح العمرانية والتطويرية لنفود بلدية المغازي، حيث تتولى مسؤوليّة إعداد وتطوير المخططات الهيكلية والتفصيلية، وتنظيم استخدامات الأراضي والشوارع العامة، وضمان الالتزام بقوانين البناء والتنظيم.
+
+      كما تُعنى الدائرة بدراسة وتدقيق المخططات الهندسية لمعاملات البناء، وإصدار تراخيص البناء والحرف والمحلات، إلى جانب الإشراف الميداني لضبط المخالفات العمرانية والتعديات، والتنسيق مع الجهات المختصة لتطوير البنية التحتية والارتقاء بالمظهر الحضاري والجمالي للمخيم.
+    </p>
+
+  </div>
+</section>
+
+<section class="adm-goals-wrapper">
+
+<div class="adm-goals-container">
+
+<div class="adm-goals-header">
+
+<h3>أهداف دائرة التخطيط والتنظيم</h3>
+
+<p>
+نسعى إلى تحقيق تنمية عمرانية متوازنة وتنظيم البيئة المبنية وتسهيل معاملات التراخيص للمواطنين.
+</p>
+
+<div class="adm-divider">
+<span></span>
+<i class="fa-regular fa-star"></i>
+<span></span>
+</div>
+
+</div>
+
+<div class="adm-goals-grid">
+
+<div class="adm-goal-box">
+<div class="adm-goal-icon">
+<i class="fa-solid fa-map-location-dot"></i>
+</div>
+
+<h3>التخطيط العمراني</h3>
+
+<div class="adm-goal-line"></div>
+
+<p>
+تحديث وتطوير
+المخططات الهيكلية
+وتحديد استخدامات الأراضي.
+</p>
+
+</div>
+
+<div class="adm-goal-box">
+
+<div class="adm-goal-icon">
+<i class="fa-solid fa-file-signature"></i>
+</div>
+
+<h3>إصدار التراخيص</h3>
+
+<div class="adm-goal-line"></div>
+
+<p>
+تدقيق المخططات
+وإصدار تراخيص البناء
+وفق الأنظمة المعتمدة.
+</p>
+
+</div>
+
+<div class="adm-goal-box">
+
+<div class="adm-goal-icon">
+<i class="fa-solid fa-compass-drafting"></i>
+</div>
+
+<h3>توسعة الشوارع</h3>
+
+<div class="adm-goal-line"></div>
+
+<p>
+تحديد خطوط التنظيم
+وحرم الطرق لضمان
+انسيابية الحركة والمرور.
+</p>
+
+</div>
+
+<div class="adm-goal-box">
+
+<div class="adm-goal-icon">
+<i class="fa-solid fa-building-circle-check"></i>
+</div>
+
+<h3>الرقابة والتفتيش</h3>
+
+<div class="adm-goal-line"></div>
+
+<p>
+متابعة أعمال البناء
+الميدانية والحد من
+التعديات والمخالفات.
+</p>
+
+</div>
+
+<div class="adm-goal-box">
+
+<div class="adm-goal-icon">
+<i class="fa-solid fa-ruler-combined"></i>
+</div>
+
+<h3>المساحة ونظم GIS</h3>
+
+<div class="adm-goal-line"></div>
+
+<p>
+إجراء المسوحات الميدانية
+وتحديث الخرائط الرقمية
+ونظم المعلومات الجغرافية.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="team-section">
+  <div class="section-header">
+    <h2>كادر التخطيط والتنظيم</h2>
+    <p>فريق المهندسين والمختصين في خدمة التنمية العمرانية والتراخيص</p>
+  </div>
+
+  <div class="team-grid">
+    
+    <!-- الموظف 1 -->
+    <div class="team-card">
+      <div class="card-badge">مدير الدائرة</div>
+      <div class="avatar-wrapper">
+        <img src="https://maghazi.mun.ps/wp-content/uploads/2023/02/%D9%85%D8%A7%D9%87%D8%B1-%D8%A7%D9%84%D8%B9%D8%B5%D8%A7%D8%B1-225x300.jpg" alt="مدير دائرة التخطيط والتنظيم">
+      </div>
+      <div class="team-info">
+        <h4>م. ماهر العصار</h4>
+        <span class="job-title">رئيس قسم الهندسة والتنظيم</span>
+        <div class="contact-links">
+          <a href="tel:0599555555" class="btn-contact phone">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <span class="num">0599860641</span>
+          </a>
+          <a href="mailto:m.alsser@momg.ps" class="btn-contact email">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <span>البريد الإلكتروني</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- الموظف 2 -->
+    <div class="team-card">
+      <div class="card-badge">رئيس قسم التنظيم</div>
+      <div class="avatar-wrapper">
+        <img src="https://maghazi.mun.ps/wp-content/uploads/2023/02/%D9%85%D8%B9%D8%A7%D8%B0-%D8%A7%D9%84%D8%AD%D8%A7%D8%B7%D9%8A-225x300.jpg" alt="رئيس قسم التنظيم والتراخيص">
+      </div>
+      <div class="team-info">
+        <h4>م. معاذ الحاطي</h4>
+        <span class="job-title">مساح</span>
+        <div class="contact-links">
+          <a href="tel:0599666666" class="btn-contact phone">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <span class="num">0599167555</span>
+          </a>
+          <a href="mailto:m..hatti@momg.ps" class="btn-contact email">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <span>البريد الإلكتروني</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+</section>
+
+<!-- التنسيقات الإحترافية المتقدمة مع الأنيميشن (CSS) -->
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap');
+
+  .team-section {
+    direction: rtl;
+    font-family: 'Cairo', system-ui, sans-serif;
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #f8fafc;
+  }
+
+  /* === Header Animations === */
+  .section-header {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .section-header h2 {
+    color: #0f172a;
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin: 0 0 12px 0;
+    position: relative;
+    display: inline-block;
+  }
+
+  /* خط متدرج ومتحرك تحت العنوان الرئيسي باستخدام ::after */
+  .section-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    right: 50%;
+    transform: translateX(50%);
+    width: 50px;
+    height: 4px;
+    background: linear-gradient(90deg, #2563eb, #3b82f6);
+    border-radius: 4px;
+    transition: width 0.4s ease;
+  }
+
+  .section-header:hover h2::after {
+    width: 100px;
+  }
+
+  .section-header p {
+    color: #64748b;
+    font-size: 1.05rem;
+    margin: 0;
+  }
+
+  /* === Grid === */
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 35px;
+    justify-content: center;
+  }
+
+  /* === Card CSS with ::before and ::after === */
+  .team-card {
+    position: relative;
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 35px 24px 25px;
+    text-align: center;
+    box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.05);
+    border: 1px solid #e2e8f0;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  /* ::before - إضاءة متدرجة تظهر أعلى البطاقة عند الـ Hover */
+  .team-card::before {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(37, 99, 235, 0.06) 0%, rgba(255, 255, 255, 0) 100%);
+    transition: top 0.5s ease;
+    z-index: -1;
+  }
+
+  /* ::after - شريط سفلي متدرج يتوسع من المنتصف */
+  .team-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 50%;
+    transform: translateX(50%);
+    width: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #2563eb, #60a5fa);
+    transition: width 0.4s ease;
+  }
+
+  .team-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 35px -10px rgba(37, 99, 235, 0.15);
+    border-color: #cbd5e1;
+  }
+
+  .team-card:hover::before {
+    top: 0;
+  }
+
+  .team-card:hover::after {
+    width: 100%;
+  }
+
+  /* === Badge === */
+  .card-badge {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    background-color: #eff6ff;
+    color: #2563eb;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 20px;
+    border: 1px solid #dbeafe;
+    transition: transform 0.3s ease;
+  }
+
+  .team-card:hover .card-badge {
+    transform: scale(1.05);
+  }
+
+  /* === Avatar with ::before glowing ring === */
+  .avatar-wrapper {
+    position: relative;
+    width: 115px;
+    height: 115px;
+    margin: 10px auto 20px;
+    border-radius: 50%;
+    padding: 4px;
+    background: linear-gradient(135deg, #2563eb 0%, #60a5fa 100%);
+    box-shadow: 0 8px 16px -4px rgba(37, 99, 235, 0.25);
+    transition: transform 0.4s ease;
+  }
+
+  .avatar-wrapper::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2563eb, #60a5fa);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+
+  .team-card:hover .avatar-wrapper {
+    transform: scale(1.05);
+  }
+
+  .team-card:hover .avatar-wrapper::before {
+    opacity: 0.6;
+    transform: scale(1.1);
+    filter: blur(6px);
+  }
+
+  .avatar-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 50%;
+    background-color: #fff;
+  }
+
+  /* === Info & Text === */
+  .team-info {
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .team-info h4 {
+    margin: 0 0 6px 0;
+    font-size: 1.3rem;
+    color: #0f172a;
+    font-weight: 700;
+  }
+
+  .job-title {
+    color: #64748b;
+    font-size: 0.92rem;
+    margin-bottom: 22px;
+    display: block;
+  }
+
+  /* === Buttons with ::before Shine Animation === */
+  .contact-links {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .btn-contact {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 11px 16px;
+    border-radius: 12px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    text-decoration: none;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    z-index: 1;
+  }
+
+  .btn-contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      120deg,
+      transparent,
+      rgba(255, 255, 255, 0.4),
+      transparent
+    );
+    transition: right 0.6s ease;
+  }
+
+  .btn-contact:hover::before {
+    right: 100%;
+  }
+
+  .btn-contact.phone {
+    background-color: #f1f5f9;
+    color: #334155;
+    border: 1px solid #e2e8f0;
+  }
+
+  .btn-contact.phone .num {
+    direction: ltr;
+    display: inline-block;
+  }
+
+  .btn-contact.phone:hover {
+    background-color: #0f172a;
+    color: #ffffff;
+    border-color: #0f172a;
+  }
+
+  .btn-contact.email {
+    background-color: #2563eb;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+  }
+
+  .btn-contact.email:hover {
+    background-color: #1d4ed8;
+    box-shadow: 0 6px 18px rgba(37, 99, 235, 0.35);
+  }
+
+  .btn-contact svg {
+    transition: transform 0.3s ease;
+  }
+
+  .btn-contact:hover svg {
+    transform: scale(1.15) rotate(-5deg);
+  }
+</style>
+
+<footer class="footer" id="contact">
+  <div class="shell footer-grid">
+    <div class="footer-card footer-about">
+      <img src="img/logo.jpeg" alt="شعار بلدية المغازي">
+      <h3>بلدية المغازي</h3>
+      <p>منصة تعريفية لخدمات البلدية وأخبارها ومشاريعها، ونافذة تواصل مع المواطنين والمؤسسات الشريكة.</p>
+      <div class="social-links">
+        <a href="https://www.facebook.com/maghazimun/?locale=ar_AR" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/maghazi.mun/" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
+        <a href="municipality-location.html#contact-form"><i class="fa-solid fa-envelope"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-card">
+      <h3>روابط مهمة</h3>
+      <a href="about-municipality.html">عن البلدية</a>
+      <a href="services.html">دليل الخدمات</a>
+      <a href="news.html">الأخبار والإعلانات</a>
+      <a href="projects-achievements.html">المشاريع والإنجازات</a>
+    </div>
+
+    <div class="footer-card">
+      <h3>تواصل معنا</h3>
+      <p><i class="fa-solid fa-location-dot"></i> مخيم المغازي - محافظة الوسطى - قطاع غزة</p>
+      <p><i class="fa-solid fa-clock"></i> الأحد - الخميس: 8:00 صباحًا - 2:00 ظهرًا</p>
+      <p><i class="fa-solid fa-circle-info"></i> +970 59 123 4567</p>
+    </div>
+
+    <div class="footer-card newsletter">
+      <h3>اقتراحاتكم تهمنا</h3>
+      <p>استخدم صفحة موقع البلدية لإرسال ملاحظات أو استفسارات حول الخدمات والمرافق العامة.</p>
+      <a class="btn btn-gold" href="municipality-location.html">صندوق الشكاوى</a>
+    </div>
+  </div>
+  <div class="copyright">
+    <div class="shell">© <span id="year"></span> بلدية المغازي - جميع الحقوق محفوظة</div>
+  </div>
+</footer>
+<button class="back-to-top" aria-label="العودة للأعلى"><i class="fa-solid fa-arrow-up"></i></button>
+<script src="js/main.js"></script>
+</body>
+</html>
